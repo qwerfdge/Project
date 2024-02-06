@@ -1,41 +1,49 @@
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
-import static org.junit.Assert.assertEquals;
-
-public class NavigationTest {
+public class ProductSearchTest {
 
     private WebDriver driver;
     private WebDriverWait wait;
 
-    @Before
+    @BeforeClass
     public void setUp() {
+
         System.setProperty("webdriver.chrome.driver", "/home/anastasia/webDriver/chromedriver_linux64");
+
         driver = new ChromeDriver();
+
         wait = new WebDriverWait(driver, 10);
+
         driver.get("https://prom.ua/");
     }
 
     @Test
-    public void testNavigationToComputerLiterature() {
+    public void testProductSearch() {
 
-        WebElement computerLiteratureLink = driver.findElement(By.linkText("Компьютерные книги"));
-        computerLiteratureLink.click();
+        WebElement searchInput = driver.findElement(By.name("https://prom.ua/?source=user_sidebar"));
 
-        String expectedUrl = "https://prom.ua/Kompyuternaya-literatura";
-        wait.until(ExpectedConditions.textToBePresentInElement("https://prom.ua/Kompyuternaya-literatura"));
-        assertEquals(expectedUrl, driver.getCurrentUrl());
+        searchInput.sendKeys("краска для обуви");
+
+        searchInput.sendKeys(Keys.ENTER);
+
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("https://prom.ua/Kraska-dlya-obuvi")));
+
+
     }
 
-    @After
+    @AfterClass
     public void tearDown() {
+
         driver.quit();
     }
 }

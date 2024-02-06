@@ -4,12 +4,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class AddToFavoritesTest {
+public class PromotionAndDiscountTest {
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -18,33 +17,34 @@ public class AddToFavoritesTest {
     public void setUp() {
 
         System.setProperty("webdriver.chrome.driver", "/home/anastasia/webDriver/chromedriver_linux64");
+
         driver = new ChromeDriver();
 
         wait = new WebDriverWait(driver, 10);
-
         driver.get("https://prom.ua/");
     }
 
     @Test
-    public void testAddToFavorites() {
+    public void testPromotionAndDiscount() {
 
-        WebElement product = driver.findElement(By.cssSelector(".product-item"));
-
-
-        WebElement addToFavoritesButton = product.findElement(By.cssSelector(".add-to-favorites-button"));
+        WebElement promotionProduct = driver.findElement(By.cssSelector("https://prom.ua/p1704441850-mustela-stick-cold.html"));
 
 
-        Assert.assertTrue(addToFavoritesButton.isDisplayed());
+        assert promotionProduct.isDisplayed();
 
 
-        addToFavoritesButton.click();
+        assert promotionProduct.findElement(By.cssSelector("скидка")).isDisplayed();
 
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".favorite-added-message")));
+        promotionProduct.click();
 
 
-        WebElement favoriteAddedMessage = driver.findElement(By.cssSelector(".favorite-added-message"));
-        Assert.assertTrue(favoriteAddedMessage.isDisplayed());
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".https://prom.ua/p1704441850-mustela-stick-cold.html")));
+
+
+        assert driver.getCurrentUrl().contains("https://prom.ua/p1704441850-mustela-stick-cold.html");
+
+
     }
 
     @AfterClass

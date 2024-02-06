@@ -1,44 +1,42 @@
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import static org.junit.Assert.assertTrue;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 public class SocialIntegrationTest {
 
     private WebDriver driver;
 
-    @Before
+    @BeforeClass
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "/home/anastasia/webDriver/chromedriver_linux64");
-        driver = new ChromeDriver();
-        driver.get("https://prom.ua/");
 
+        System.setProperty("webdriver.chrome.driver", "/home/anastasia/webDriver/chromedriver_linux64");
+
+        driver = new ChromeDriver();
+
+        driver.get("https://prom.ua/");
     }
 
     @Test
     public void testSocialIntegration() {
 
-        WebElement shareButton = driver.findElement(By.id("shareButton"));
-        shareButton.click();
-
-       
+        WebElement facebookIcon = driver.findElement(By.xpath("https://www.facebook.com/prom.ua"));
+        WebElement instagramIcon = driver.findElement(By.xpath("https://www.instagram.com/prom.pompom/"));
 
 
-        WebElement socialMediaLoginButton = driver.findElement(By.id("socialMediaLoginButton"));
-        socialMediaLoginButton.click();
+        assert facebookIcon.isDisplayed();
+        assert instagramIcon.isDisplayed();
 
 
-        WebElement successMessage = driver.findElement(By.id("successMessage"));
-        assertTrue(successMessage.isDisplayed());
     }
 
-    @After
+    @AfterClass
     public void tearDown() {
+
         driver.quit();
     }
 }
+
