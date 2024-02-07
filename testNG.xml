@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name = "selenium" parallel="classes" thread-count="2">
+   <test name="AboutUs">
+       <classes>
+           <class name="AboutUsPageTest">
+           </classes>
+   </test>
+    <test name="Favorites">
+        <classes>
+            <class name="AddToFavoritesTest">
+            </classes>
+    </test>
+    <test name="CheckoutProcess">
+        <classes>
+            <class name="CheckoutProcessTest">
+        </classes>
+    </test>
+    <test name="ContactPage">
+        <classes>
+            <class name="ContactPageTest">
+        </classes>
+    </test>
+    <test name="Login">
+        <classes>
+            <class name="LoginTest">
+        </classes>
+    </test>
+    <test name="Logout">
+        <classes>
+            <class name="LogoutTest">
+        </classes>
+    </test>
+    <test name="ProductDetailsView">
+        <classes>
+            <class name="ProductDetailsViewTest">
+        </classes>
+    </test>
+    <test name="ProductFiltering">
+        <classes>
+            <class name="ProductFilteringTest">
+        </classes>
+    </test>
+    <test name="ProductSearch">
+        <classes>
+            <class name="ProductSearchTest">
+        </classes>
+    </test>
+    <test name="PromotionAndDiscount">
+        <classes>
+            <class name="PromotionAndDiscountTest">
+        </classes>
+    </test>
+    <test name="SearchSorting">
+        <classes>
+            <class name="SearchSortingTest">
+        </classes>
+    </test>
+    <test name="Security">
+        <classes>
+            <class name="SecurityTest">
+        </classes>
+    </test>
+    <test name="ShoppingCartManagment">
+        <classes>
+            <class name="ShoppingCartManagementTest">
+        </classes>
+    </test>
+    <test name="SocialIntegration">
+        <classes>
+            <class name="SocialIntegrationTest">
+        </classes>
+    </test>
+</suite>
