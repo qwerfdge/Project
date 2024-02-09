@@ -1,56 +1,23 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+
+import PageObject.BaseTest;
+import PageObject.LoginPage;
+import PageObject.ProductPage;
 import org.testng.annotations.Test;
 
-public class AddToFavoritesTest {
+public class AddToFavoritesTest extends BaseTest {
 
-    private WebDriver driver;
-    private WebDriverWait wait;
-
-    @BeforeClass
-    public void setUp() {
-
-        System.setProperty("webdriver.chrome.driver", "/home/anastasia/webDriver/chromedriver_linux64");
-        driver = new ChromeDriver();
-
-        wait = new WebDriverWait(driver, 10);
-
-        driver.get("https://prom.ua/");
-    }
+    private LoginPage loginPage;
+    private ProductPage productPage;
 
     @Test
     public void testAddToFavorites() {
+        loginPage.login("Anastasia", "Mar19742005");
 
-        WebElement product = driver.findElement(By.cssSelector(".product-item"));
+        driver.get("https://prom.ua/ua/p347760680-stilars-525-pushka.html");
 
-
-        WebElement addToFavoritesButton = product.findElement(By.cssSelector(".add-to-favorites-button"));
-
-
-        Assert.assertTrue(addToFavoritesButton.isDisplayed());
+        productPage.addToFavorites();
 
 
-        addToFavoritesButton.click();
-
-
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".favorite-added-message")));
-
-
-        WebElement favoriteAddedMessage = driver.findElement(By.cssSelector(".favorite-added-message"));
-        Assert.assertTrue(favoriteAddedMessage.isDisplayed());
-    }
-
-    @AfterClass
-    public void tearDown() {
-
-        driver.quit();
     }
 }
 
