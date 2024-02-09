@@ -1,8 +1,7 @@
 import PageObject.LoginPage;
 import PageObject.ProductPage;
+import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import static org.testng.Assert.assertTrue;
 
 public final class AddToFavoritesTest extends BaseTest {
 
@@ -18,16 +17,12 @@ public final class AddToFavoritesTest extends BaseTest {
     public void testAddToFavorites() {
 
         loginPage.login("Anastasia", "Mar19742005");
-
-
         loginPage.get("https://prom.ua/ua/p347760680-stilars-525-pushka.html");
 
 
-        productPage.addToFavorites();
+        boolean isAddedToFavorites = productPage.addToFavorites();
 
 
-        assertTrue(productPage.addToFavorites(), "Failed to add product to favorites");
+        Assert.assertTrue(isAddedToFavorites, "Failed to add product to favorites");
     }
 }
-
-
