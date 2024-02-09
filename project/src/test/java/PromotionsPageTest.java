@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class PromotionsPageTest {
 
     private WebDriver driver;
-    private PromotionsPageTest promotionsPage;
+    private PromotionsPage promotionsPage;
 
     public PromotionsPageTest(WebDriver driver) {
 
@@ -20,8 +20,8 @@ public class PromotionsPageTest {
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "/home/anastasia/webDriver/chromedriver_linux64/");
         driver = new ChromeDriver();
-        promotionsPage = new PromotionsPageTest(driver);
-        driver.get("https://examphle.com/promotions");
+        promotionsPage = new PromotionsPage(driver);
+        driver.get("https://example.com/promotions");
     }
 
     @Test
@@ -29,19 +29,7 @@ public class PromotionsPageTest {
         promotionsPage.enterPromoCode("E4535");
         promotionsPage.applyPromoCode();
         String successMessage = promotionsPage.getPromoSuccessMessage();
-        Assert.assertEquals(successMessage, "Promo code successfully applied.");
-    }
-
-    private String getPromoSuccessMessage() {
-        return null;
-    }
-
-    private void applyPromoCode() {
-
-    }
-
-    private void enterPromoCode(String example123) {
-
+        Assert.assertEquals(successMessage, "Promo code successfully applied.", "The success message is not as expected.");
     }
 
     @AfterClass
@@ -49,4 +37,3 @@ public class PromotionsPageTest {
         driver.quit();
     }
 }
-

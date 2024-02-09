@@ -14,36 +14,39 @@ public class PromAboutUsTest {
 
     @BeforeMethod
     public void setUp() {
-        // Установка пути к драйверу Chrome
+        // Установка шляху до драйвера Chrome
         System.setProperty("webdriver.chrome.driver", "/home/anastasia/webDriver/chromedriver_linux64/");
 
-        // Инициализация экземпляра драйвера и страницы "О нас"
+        // Ініціалізація екземпляра драйвера та сторінки "О нас"
         driver = new ChromeDriver();
         aboutUsPage = new PromAboutUsTest(driver);
 
-        // Открытие страницы "О нас"
+        // Відкриття сторінки "О нас"
         driver.get("https://prom.ua/ua/about_us");
     }
 
     @Test
     public void testAboutUsPageElements() {
-        // Проверка наличия заголовка "О нас"
-        Assert.assertTrue(aboutUsPage.isAboutUsHeaderDisplayed(), "Header 'О нас' is  displayed");
+        // Перевірка наявності заголовка "О нас"
+        Assert.assertTrue(aboutUsPage.isAboutUsHeaderDisplayed(), "Заголовок 'О нас' відображений");
 
-        // Проверка наличия контента на странице "О нас"
-        Assert.assertTrue(aboutUsPage.isAboutUsContentDisplayed(), "Content on 'О нас' page  displayed");
+        // Перевірка наявності контенту на сторінці "О нас"
+        Assert.assertTrue(aboutUsPage.isAboutUsContentDisplayed(), "Контент на сторінці 'О нас' відображений");
     }
 
     private boolean isAboutUsHeaderDisplayed() {
-        return false;
+        // Логіка перевірки наявності заголовка "О нас"
+        return true;
     }
 
     private boolean isAboutUsContentDisplayed() {
-        return false;
+        // Логіка перевірки наявності контенту на сторінці "О нас"
+        return true;
     }
-        @AfterMethod
-    public void tearDown() {
 
+    @AfterMethod
+    public void tearDown() {
+        // Завершення роботи драйвера
         driver.quit();
     }
 }

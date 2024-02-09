@@ -1,9 +1,6 @@
-
-import PageObject.BaseTest;
 import PageObject.HomePage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 public class SearchTest extends BaseTest {
 
     private HomePage homePage;

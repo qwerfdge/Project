@@ -13,18 +13,18 @@ public class SocialPage {
     }
 
     public boolean isFacebookButtonDisplayed() {
-        WebElement facebookButton = driver.findElement(By.cssSelector("https://www.facebook.com/prom.ua"));
+        WebElement facebookButton = driver.findElement(By.cssSelector("a[href='https://www.facebook.com/prom.ua']"));
         return facebookButton.isDisplayed();
     }
 
     public boolean isYoutubeButtonDisplayed() {
-        WebElement twitterButton = driver.findElement(By.cssSelector("https://www.youtube.com/prom4ua"));
-        return twitterButton.isDisplayed();
+        WebElement youtubeButton = driver.findElement(By.cssSelector("a[href='https://www.youtube.com/prom4ua']"));
+        return youtubeButton.isDisplayed();
     }
 
     public boolean isInstagramButtonDisplayed() {
-        WebElement linkedInButton = driver.findElement(By.cssSelector("https://www.instagram.com/prom.pompom/"));
-        return linkedInButton.isDisplayed();
+        WebElement instagramButton = driver.findElement(By.cssSelector("a[href='https://www.instagram.com/prom.pompom/']"));
+        return instagramButton.isDisplayed();
     }
 }
 

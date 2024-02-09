@@ -1,5 +1,5 @@
 // CartTest.java
-import PageObject.BaseTest;
+
 import PageObject.CartPage;
 import PageObject.ProductPage;
 import org.testng.Assert;

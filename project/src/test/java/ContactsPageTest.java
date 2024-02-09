@@ -13,7 +13,7 @@ public class ContactsPageTest {
 
     @BeforeClass
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "/home/anastasia/webDriver/chromedriver_linux64/");
+        System.setProperty("web driver.chrome.driver", "/home/anastasia/webDriver/chromedriver_linux64/");
         driver = new ChromeDriver();
         contactsPage = new ContactsPage(driver);
         driver.get("https://prom.ua/ua/contact_us");
@@ -22,7 +22,7 @@ public class ContactsPageTest {
     @Test
     public void testContactFormVisibility() {
         boolean isContactFormVisible = contactsPage.isContactFormVisible();
-        Assert.assertTrue(isContactFormVisible);
+        Assert.assertTrue(isContactFormVisible, "Contact form is not visible");
     }
 
     @AfterClass
@@ -30,4 +30,5 @@ public class ContactsPageTest {
         driver.quit();
     }
 }
+
 
