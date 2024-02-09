@@ -2,7 +2,6 @@ package PageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class CheckoutPage {
     private WebDriver driver;
@@ -27,5 +26,9 @@ public class CheckoutPage {
 
     public void submitOrder() {
         driver.findElement(submitButton).click();
+    }
+
+    public boolean isOrderFormFilledSuccessfully() {
+        return false;
     }
 }

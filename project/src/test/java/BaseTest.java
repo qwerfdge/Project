@@ -9,7 +9,7 @@ public class BaseTest {
 
     @BeforeClass
     public void setUp() {
-        System.setProperty("web driver.chrome.driver", "/home/anastasia/webDriver/chromedriver_linux64/");
+        System.setProperty("webdriver.chrome.driver", "/home/anastasia/webDriver/chromedriver_linux64/");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
@@ -18,7 +18,7 @@ public class BaseTest {
     public void tearDown() {
         if (driver != null) {
             driver.quit();
-            Assert.assertTrue(driver.toString().contains("(null)"), "WebDriver failed to quit properly");
+            Assert.assertFalse(driver.toString().contains("(null)"), "WebDriver failed to quit properly");
         }
     }
 }

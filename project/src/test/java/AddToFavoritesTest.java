@@ -3,10 +3,10 @@ import PageObject.ProductPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public final class AddToFavoritesTest extends BaseTest {
+public class AddToFavoritesTest extends BaseTest {
 
-    private final LoginPage loginPage;
-    private final ProductPage productPage;
+    private LoginPage loginPage;
+    private  ProductPage productPage;
 
     public AddToFavoritesTest(LoginPage loginPage, ProductPage productPage) {
         this.loginPage = loginPage;

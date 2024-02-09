@@ -1,51 +1,31 @@
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ProductViewTest extends BaseTest {
-
-    public ProductViewTest(WebDriver driver) {
-
-    }
 
     @Test
     public void testViewProductDetails() {
         // Переходимо на сторінку товару
         driver.get("https://prom.ua/ua/p347760680-stilars-525-pushka.html");
 
-        // Створюємо екземпляр сторінки товару
-        ProductViewTest productPage = new ProductViewTest(driver);
+        // Перевіряємо, що назва та опис товару присутні на сторінці
+        WebElement productNameElement = driver.findElement(By.xpath("//h1[@class='product__title']"));
+        Assert.assertNotNull(productNameElement, "Назва товару не знайдена на сторінці");
 
-        // Отримуємо назву та опис товару
-        String productName = productPage.getProductName("Stilars 525 Гармата ");
-        String productDescription = productPage.getProductDescription("Виробник\n" +
-                "Stilars\n" +
-                "Колір: Блискучий\n" +
-                "\n" +
-                "Матеріал: латунь Ливарна - метал в масі\n" +
-                "\n" +
-                "Розмір: Ширина 10 CM X Висота 22 CM");
+        WebElement productDescriptionElement = driver.findElement(By.xpath("//div[@class='product__description']"));
+        Assert.assertNotNull(productDescriptionElement, "Опис товару не знайдено на сторінці");
 
-        // Перевіряємо, що назва та опис не є порожніми
-        Assert.assertFalse(productName.isEmpty(), "Назва товару не знайдена");
-        Assert.assertFalse(productDescription.isEmpty(), "Опис товару не знайдено");
 
-        // Додаємо товар у кошик
-        productPage.addToCart();
+        addToCart();
 
-        // Додавання асерта для перевірки успішного додавання товару у кошик
-        Assert.assertTrue(Boolean.parseBoolean("//*[@id=\"page-block\"]/div/div[2]/div[1]/div/div[3]/div[2]/div[1]/div/div[5]/div/div[2]/button"));
-    }
 
-    private String getProductDescription(String s) {
-        return s;
+        WebElement addToCartButton = driver.findElement(By.xpath("//button[@data-action='buy']"));
+        Assert.assertNotNull(addToCartButton, "Кнопка додавання у кошик знайдена на сторінці");
     }
 
     private void addToCart() {
 
-    }
-
-    private String getProductName(String s) {
-        return null;
     }
 }
