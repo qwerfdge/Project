@@ -3,72 +3,72 @@
 <suite name = "selenium"
 <test name="AboutUsPage">
     <classes>
-        <class name="AboutUsPageTest">
+        <class name="AboutUsPageTest"></class>
     </classes>
 </test>
-    <test name="AddToFavorites">
+<test name="AddToFavorites">
         <classes>
-            <class name="AddToFavoritesTest">
+            <class name="AddToFavoritesTest"></class>
         </classes>
     </test>
-    <test name="CheckoutProcess">
+<test name="CheckoutProcess">
         <classes>
-            <class name="CheckoutProcessTest">
+            <class name="CheckoutProcessTest"></class>
         </classes>
     </test>
     <test name="ContactPage">
         <classes>
-            <class name="ContactPageTest">
+            <class name="ContactPageTest"></class>
         </classes>
     </test>
     <test name="Login">
         <classes>
-            <class name="LoginTest">
+            <class name="LoginTest"></class>
         </classes>
     </test>
     <test name="Logout">
         <classes>
-            <class name="LogoutTest">
+            <class name="LogoutTest"></class>
         </classes>
     </test>
     <test name="ProductDeteilsView">
         <classes>
-            <class name="ProductDetailsViewTest">
+            <class name="ProductDetailsViewTest"></class>
         </classes>
     </test>
     <test name="ProductFiltering">
         <classes>
-            <class name="ProductFilteringTest">
+            <class name="ProductFilteringTest"></class>
         </classes>
     </test>
     <test name="ProductSearch">
         <classes>
-            <class name="ProductSearchTest">
+            <class name="ProductSearchTest"></class>
         </classes>
     </test>
     <test name="PromotionAndDiscount">
         <classes>
-            <class name="PromotionAndDiscountTest">
+            <class name="PromotionAndDiscountTest"></class>
         </classes>
     </test>
     <test name="SearchSorting">
         <classes>
-            <class name="SearchSortingTest">
+            <class name="SearchSortingTest"></class>
         </classes>
     </test>
     <test name="Security">
         <classes>
-            <class name="SecurityTest">
+            <class name="SecurityTest"></class>
         </classes>
     </test>
     <test name="ShoppingCartManagment">
         <classes>
-            <class name="ShoppingCartManagementTest">
+            <class name="ShoppingCartManagementTest"></class>
         </classes>
     </test>
     <test name="SocialIntegration">
         <classes>
-            <class name="SocialIntegrationTest">
+            <class name="SocialIntegrationTest"></class>
         </classes>
     </test>
 </suite>
