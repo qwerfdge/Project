@@ -1,27 +1,31 @@
 package PageObject;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class PromAboutUsPage {
     private final WebDriver driver;
 
-    // Локаторы элементов на странице
-    private final By aboutUsHeaderLocator = By.xpath("//h1[contains(text(),'О нас')]");
-    private final By aboutUsContentLocator = By.xpath("//div[@class='about-us-content']");
+    // Локатори елементів на сторінці
+    @FindBy(xpath = "//h1[contains(text(),'О нас')]")
+    private WebElement aboutUsHeader;
 
-    // Конструктор класса
+    @FindBy(xpath = "//div[@class='about-us-content']")
+    private WebElement aboutUsContent;
+
+    // Конструктор класу
     public PromAboutUsPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    // Методы для проверки наличия элементов на странице
+    // Метод для перевірки видимості заголовка "Про нас"
     public boolean isAboutUsHeaderDisplayed() {
-        return driver.findElement(aboutUsHeaderLocator).isDisplayed();
+        return aboutUsHeader.isDisplayed();
     }
 
+    // Метод для перевірки видимості контенту "Про нас"
     public boolean isAboutUsContentDisplayed() {
-        return driver.findElement(aboutUsContentLocator).isDisplayed();
+        return aboutUsContent.isDisplayed();
     }
 }
-

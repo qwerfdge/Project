@@ -3,17 +3,16 @@ package PageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
 import java.util.List;
 
 public abstract class SearchPage extends BasePage {
-    @FindBy(xpath = "//*[@id=\"page-block\"]/div/header/div[1]/div/div[2]/div/div/div[2]/div/div[1]/form/div/div[2]/div/input")
+    @FindBy(css = "input[name='q']")
     private WebElement searchInput;
 
-    @FindBy(xpath = "//*[@id=\"page-block\"]/div/header/div[1]/div/div[2]/div/div/div[2]/div/div/form/div/div[4]/button")
+    @FindBy(css = "button[type='submit']")
     private WebElement searchButton;
 
-    @FindBy(xpath = "//*[@id=\"page-block\"]/div/div[2]/div/div[3]/div/div/h1/span")
+    @FindBy(xpath = "//h1[contains(@class, 'search-results-title')]//span")
     private List<WebElement> searchResults;
 
     public SearchPage(WebDriver driver) {

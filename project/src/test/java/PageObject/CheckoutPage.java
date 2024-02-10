@@ -29,6 +29,11 @@ public class CheckoutPage {
     }
 
     public boolean isOrderFormFilledSuccessfully() {
-        return false;
+        // Перевіряємо, чи всі поля форми були успішно заповнені перед відправленням
+        return driver.findElement(firstNameInput).getAttribute("value").length() > 0 &&
+                driver.findElement(lastNameInput).getAttribute("value").length() > 0 &&
+                driver.findElement(addressInput).getAttribute("value").length() > 0 &&
+                driver.findElement(cityInput).getAttribute("value").length() > 0 &&
+                driver.findElement(zipCodeInput).getAttribute("value").length() > 0;
     }
 }

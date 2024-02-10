@@ -1,4 +1,3 @@
-
 import PageObject.PromotionsPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,16 +11,12 @@ public class PromotionsPageTest {
     private WebDriver driver;
     private PromotionsPage promotionsPage;
 
-    public PromotionsPageTest(WebDriver driver) {
-
-    }
-
     @BeforeClass
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "/home/anastasia/webDriver/chromedriver_linux64/");
+        System.setProperty("webdriver.chrome.driver", "/home/anastasia/webDriver/chromedriver_linux64/chromedriver");
         driver = new ChromeDriver();
         promotionsPage = new PromotionsPage(driver);
-        driver.get("https://example.com/promotions");
+        driver.get("https://prom.ua/");
     }
 
     @Test
@@ -34,6 +29,8 @@ public class PromotionsPageTest {
 
     @AfterClass
     public void tearDown() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }

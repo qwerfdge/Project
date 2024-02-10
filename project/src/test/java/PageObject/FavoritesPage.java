@@ -1,6 +1,5 @@
 package PageObject;
 
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,19 +8,18 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-
 public abstract class FavoritesPage extends BasePage {
 
-    @FindBy(xpath = "//*[@id=\"react-portal\"]/div[2]/div/div/div[2]/div/div/ul/li[1]/div/button")
+    @FindBy(xpath = "//*[@id='react-portal']/div[2]/div/div/div[2]/div/div/ul/li[1]/div/button")
     private WebElement loginPopup;
 
-    @FindBy(xpath = "//*[@id=\"react-portal\"]/div[4]/div/div/div[2]/div/div/div/div[1]/div/button/svg/path")
+    @FindBy(xpath = "//*[@id='react-portal']/div[4]/div/div/div[2]/div/div/div/div[1]/div/button/svg/path")
     private WebElement closeLoginPopup;
 
-    @FindBy(xpath = "//*[@id=\"page-block\"]/div/div[2]/div[1]/div/div[3]/div[2]/div[1]/div/div[1]/div/div[2]/div/div/span")
+    @FindBy(xpath = "//*[@id='page-block']/div/div[2]/div[1]/div/div[3]/div[2]/div[1]/div/div[1]/div/div[2]/div/div/span")
     private WebElement addToFavoriteButton;
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div[2]/div/div/div[2]/div/div/div[1]/div[1]/span")
+    @FindBy(xpath = "//*[@id='root']/div/div[2]/div/div/div[2]/div/div/div[1]/div[1]/span")
     private WebElement inFavorite;
 
     public FavoritesPage(WebDriver driver) {
@@ -34,7 +32,7 @@ public abstract class FavoritesPage extends BasePage {
         return inFavorite.isDisplayed();
     }
 
-    public boolean isProductRemoveFromFavorite() {
+    public boolean isProductRemovedFromFavorites() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(addToFavoriteButton));
         return addToFavoriteButton.isDisplayed();
@@ -44,20 +42,16 @@ public abstract class FavoritesPage extends BasePage {
         addToFavoriteButton.click();
     }
 
-    public void removeFromFavorite() {
+    public void removeFromFavorites() {
         inFavorite.click();
     }
 
-    public WebElement getAddToFavoriteButton() {
-        return addToFavoriteButton;
-    }
-
     public boolean isLoginPopupDisplayed() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             wait.until(ExpectedConditions.visibilityOf(loginPopup));
             return true;
-        } catch (TimeoutException e) {
+        } catch (org.openqa.selenium.NoSuchElementException | org.openqa.selenium.TimeoutException e) {
             return false;
         }
     }
@@ -67,6 +61,7 @@ public abstract class FavoritesPage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(closeLoginPopup)).click();
     }
 
-
-
+    public WebElement getAddToFavoriteButton() {
+        return addToFavoriteButton;
+    }
 }

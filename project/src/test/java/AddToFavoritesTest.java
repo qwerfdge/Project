@@ -1,28 +1,29 @@
 import PageObject.LoginPage;
 import PageObject.ProductPage;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class AddToFavoritesTest extends BaseTest {
 
-    private LoginPage loginPage;
-    private  ProductPage productPage;
-
-    public AddToFavoritesTest(LoginPage loginPage, ProductPage productPage) {
-        this.loginPage = loginPage;
-        this.productPage = productPage;
-    }
-
     @Test
     public void testAddToFavorites() {
+        WebDriver driver = new ChromeDriver();
+
+        LoginPage loginPage = new LoginPage(driver);
+        ProductPage productPage = new ProductPage(driver);
 
         loginPage.login("Anastasia", "Mar19742005");
-        loginPage.get("https://prom.ua/ua/p347760680-stilars-525-pushka.html");
+
+        driver.get("https://prom.ua/ua/p347760680-stilars-525-pushka.html");
 
 
         boolean isAddedToFavorites = productPage.addToFavorites();
 
 
-        Assert.assertTrue(isAddedToFavorites, "Failed to add product to favorites");
+        Assert.assertTrue(isAddedToFavorites, "Товар успішно додано до списку улюблених");
+
+        driver.quit();
     }
 }

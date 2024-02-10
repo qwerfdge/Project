@@ -3,7 +3,6 @@ package PageObject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class PromotionsPage {
 
@@ -25,7 +24,6 @@ public class PromotionsPage {
     // Конструктор класса
     public PromotionsPage(WebDriver driver) {
         this.driver = driver;
-        PageFactory.initElements(driver, this);
     }
 
     // Метод для ввода промокода
@@ -43,5 +41,3 @@ public class PromotionsPage {
         return promoSuccessMessage.getText();
     }
 }
-
-

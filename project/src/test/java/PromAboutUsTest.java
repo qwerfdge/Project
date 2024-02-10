@@ -1,3 +1,4 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -7,46 +8,41 @@ import org.testng.annotations.Test;
 
 public class PromAboutUsTest {
     private WebDriver driver;
-    private PromAboutUsTest aboutUsPage;
-
-    public PromAboutUsTest(WebDriver driver) {
-    }
 
     @BeforeMethod
     public void setUp() {
-        // Установка шляху до драйвера Chrome
+        // Set the path to the Chrome driver
         System.setProperty("webdriver.chrome.driver", "/home/anastasia/webDriver/chromedriver_linux64/");
 
-        // Ініціалізація екземпляра драйвера та сторінки "О нас"
+        // Initialize the driver instance and open the "About Us" page
         driver = new ChromeDriver();
-        aboutUsPage = new PromAboutUsTest(driver);
-
-        // Відкриття сторінки "О нас"
         driver.get("https://prom.ua/ua/about_us");
     }
 
     @Test
     public void testAboutUsPageElements() {
-        // Перевірка наявності заголовка "О нас"
-        Assert.assertTrue(aboutUsPage.isAboutUsHeaderDisplayed(), "Заголовок 'О нас' відображений");
+        // Check the presence of the "About Us" header
+        Assert.assertTrue(isAboutUsHeaderDisplayed(), "The 'About Us' header is displayed");
 
-        // Перевірка наявності контенту на сторінці "О нас"
-        Assert.assertTrue(aboutUsPage.isAboutUsContentDisplayed(), "Контент на сторінці 'О нас' відображений");
+        // Check the presence of the content on the "About Us" page
+        Assert.assertTrue(isAboutUsContentDisplayed(), "The content on the 'About Us' page is displayed");
     }
 
     private boolean isAboutUsHeaderDisplayed() {
-        // Логіка перевірки наявності заголовка "О нас"
-        return true;
+        // Logic to check the presence of the "About Us" header
+        // For example, you can use element search by its ID or CSS selector
+        return driver.findElement(By.id("aboutUsHeader")).isDisplayed();
     }
 
     private boolean isAboutUsContentDisplayed() {
-        // Логіка перевірки наявності контенту на сторінці "О нас"
-        return true;
+        // Logic to check the presence of the content on the "About Us" page
+        // For example, you can use element search by its ID or CSS selector
+        return driver.findElement(By.id("aboutUsContent")).isDisplayed();
     }
 
     @AfterMethod
     public void tearDown() {
-        // Завершення роботи драйвера
+        // Quit the driver
         driver.quit();
     }
 }

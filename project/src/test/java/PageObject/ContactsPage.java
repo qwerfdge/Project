@@ -8,7 +8,7 @@ public class ContactsPage {
 
     private WebDriver driver;
 
-    // Локаторы элементов на странице
+    // Локатори елементів на сторінці
     @FindBy(id = "contactForm")
     private WebElement contactForm;
 
@@ -24,25 +24,25 @@ public class ContactsPage {
     @FindBy(id = "submitButton")
     private WebElement submitButton;
 
-    // Конструктор класса
+    // Конструктор класу
     public ContactsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    // Метод для заполнения формы контактов
+    // Метод для заповнення форми контактів
     public void fillContactForm(String name, String email, String message) {
         nameInput.sendKeys(name);
         emailInput.sendKeys(email);
         messageInput.sendKeys(message);
     }
 
-    // Метод для отправки формы контактов
+    // Метод для відправлення форми контактів
     public void submitContactForm() {
         submitButton.click();
     }
 
-    // Метод для проверки видимости формы контактов
+    // Метод для перевірки видимості форми контактів
     public boolean isContactFormVisible() {
         return contactForm.isDisplayed();
     }

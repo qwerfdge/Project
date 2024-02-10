@@ -1,26 +1,35 @@
 package PageObject;
-// LoginPage.java
-import org.openqa.selenium.Alert;
+
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public abstract class LoginPage extends BasePage {
-    @FindBy(xpath = "//*[@id=\"firstName\"]")
+public class LoginPage extends BasePage {
+    @FindBy(xpath = "//input[@formcontrolname='username']")
     private WebElement usernameInput;
 
-    @FindBy(xpath = "//*[@id=\"lastName\"]")
-    private WebElement lastName;
+    @FindBy(xpath = "//input[@formcontrolname='password']")
+    private WebElement passwordInput;
 
-    @FindBy(xpath = "//*[@id=\"registrationConfirmButton\"]")
+    @FindBy(xpath = "//button[@class='submit-btn']")
     private WebElement loginButton;
 
-    @FindBy(xpath = "//*[@id=\"react-portal\"]/div[4]/div/div/div[2]/div/div/div/div[2]/div/span")
+    @FindBy(xpath = "//p[@class='message ng-star-inserted']")
     private WebElement errorMessage;
-    private Alert passwordInput;
 
     public LoginPage(WebDriver driver) {
         super(driver);
+    }
+
+    @Override
+    public void open(String url) {
+
+    }
+
+    @Override
+    public boolean addToCart() {
+        return false;
     }
 
 

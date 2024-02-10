@@ -17,8 +17,14 @@ public class HomePage {
 
     public void searchFor(String query) {
         WebElement searchInputField = driver.findElement(searchInput);
+        searchInputField.clear(); // Очистка поля вводу перед введенням нового запиту
         searchInputField.sendKeys(query);
         searchInputField.sendKeys(Keys.ENTER);
     }
+
+    public int getSearchResultsCount() {
+        return 0;
+    }
 }
+
 

@@ -1,21 +1,24 @@
 package PageObject;
 
 // ProductPage.java
-import org.openqa.selenium.WebDriver;
 
-public class ProductPage {
-    private WebDriver driver;
+import org.openqa.selenium.WebDriver;
+public class ProductPage extends BasePage {
+
 
     public ProductPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
-    public boolean addToFavorites() {
-        // Реализация метода добавления товара в избранное на странице товара
+    @Override
+    public void open(String url) {
+
+    }
+
+    @Override
+    public boolean addToCart() {
         return false;
     }
 
-    public void addToCart() {
-    }
-}
 
+}

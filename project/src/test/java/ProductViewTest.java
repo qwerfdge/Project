@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -8,6 +9,7 @@ public class ProductViewTest extends BaseTest {
     @Test
     public void testViewProductDetails() {
         // Переходимо на сторінку товару
+        WebDriver driver = null;
         driver.get("https://prom.ua/ua/p347760680-stilars-525-pushka.html");
 
         // Перевіряємо, що назва та опис товару присутні на сторінці
@@ -17,9 +19,7 @@ public class ProductViewTest extends BaseTest {
         WebElement productDescriptionElement = driver.findElement(By.xpath("//div[@class='product__description']"));
         Assert.assertNotNull(productDescriptionElement, "Опис товару не знайдено на сторінці");
 
-
         addToCart();
-
 
         WebElement addToCartButton = driver.findElement(By.xpath("//button[@data-action='buy']"));
         Assert.assertNotNull(addToCartButton, "Кнопка додавання у кошик знайдена на сторінці");

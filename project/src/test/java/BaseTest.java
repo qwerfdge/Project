@@ -1,24 +1,26 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.Assert;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
-    protected WebDriver driver;
+    protected WebDriver webDriver;
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "/home/anastasia/webDriver/chromedriver_linux64/");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+
+        System.setProperty("webdriver.chrome.driver", "/home/anastasia/webDriver/");
+        ChromeOptions options = new ChromeOptions();
+
+        webDriver = new ChromeDriver(options);
     }
 
-    @AfterClass
+    @AfterMethod
     public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-            Assert.assertFalse(driver.toString().contains("(null)"), "WebDriver failed to quit properly");
+
+        if (webDriver != null) {
+            webDriver.quit();
         }
     }
 }

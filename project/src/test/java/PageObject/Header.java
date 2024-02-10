@@ -1,4 +1,4 @@
-package PageObject.components;
+package PageObject;
 
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 
-public abstract class Header extends BasePage {
+public class Header extends BasePage {
     @FindBy(xpath = "//div[@class='login ng-star-inserted']")
     private WebElement loginLink;
 
@@ -21,9 +21,18 @@ public abstract class Header extends BasePage {
     private WebElement favoriteButton;
 
 
-
     public Header(WebDriver driver) {
         super(driver);
+    }
+
+    @Override
+    public void open(String url) {
+
+    }
+
+    @Override
+    public boolean addToCart() {
+        return false;
     }
 
     public void clickLoginLink() {

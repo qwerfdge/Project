@@ -1,7 +1,7 @@
 // CartTest.java
-
 import PageObject.CartPage;
 import PageObject.ProductPage;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -9,24 +9,28 @@ public class CartTest extends BaseTest {
 
     @Test
     public void testAddToCart() {
-        // Переходим на сторінку товару
+        // Go to the product page
+        WebDriver driver = null;
         driver.get("https://prom.ua/ua/p347760680-stilars-525-pushka.html");
 
-        // Створюємо екземпляр сторінки товару
+        // Create an instance of the product page
         ProductPage productPage = new ProductPage(driver);
 
-        // Додаємо товар до корзини
-        productPage.addToCart();
+        // Add the product to the cart
+        boolean isAddedToCart = productPage.addToCart();
 
-        // Переходимо на сторінку корзини
+        // Check if the product is added to the cart
+        Assert.assertTrue(isAddedToCart, "Failed to add product to cart");
+
+        // Go to the cart page
         driver.get("https://prom.ua/ua/shopping_cart/checkout/745785583?type=adaptive&source=portal&companyId=2370549");
 
-        // Створюємо екземпляр сторінки корзини
+        // Create an instance of the cart page
         CartPage cartPage = new CartPage(driver);
 
-        // Перевіряємо, що товар додано в корзину
+        // Check if the number of items in the cart matches the expected count
         int expectedCartItemsCount = 1;
         int actualCartItemsCount = cartPage.getCartItemsCount();
-        Assert.assertEquals(actualCartItemsCount, expectedCartItemsCount, "Кількість товарів у корзині відповідає очікуваній");
+        Assert.assertEquals(actualCartItemsCount, expectedCartItemsCount, "Number of items in the cart does not match the expected count");
     }
 }

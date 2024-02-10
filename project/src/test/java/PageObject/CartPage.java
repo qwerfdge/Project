@@ -3,6 +3,7 @@ package PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import java.util.List;
 
 public class CartPage {
     private WebDriver driver;
@@ -13,6 +14,7 @@ public class CartPage {
     }
 
     public int getCartItemsCount() {
-        return driver.findElements(cartItems).size();
+        List<WebElement> items = driver.findElements(cartItems);
+        return items.size();
     }
 }
