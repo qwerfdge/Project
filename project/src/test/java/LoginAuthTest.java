@@ -14,9 +14,10 @@ public abstract class LoginAuthTest extends BaseTest {
         }
     }
 
-    protected <T> void login(String username, String password) {
+    protected  void login(String username, String password) {
         Header header = new Header(webDriver);
         header.clickLoginLink();
+
         LoginPage loginPage = new LoginPage(webDriver);
         loginPage.login(username, password);
     }
