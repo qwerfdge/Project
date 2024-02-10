@@ -6,69 +6,49 @@
         <class name="AboutUsPageTest"></class>
     </classes>
 </test>
-<test name="AddToFavorites">
+<test name="FavoritesPage">
         <classes>
             <class name="AddToFavoritesTest"></class>
         </classes>
     </test>
 <test name="CheckoutProcess">
         <classes>
-            <class name="CheckoutProcessTest"></class>
+            <class name="CheckoutTest"></class>
         </classes>
     </test>
     <test name="ContactPage">
         <classes>
-            <class name="ContactPageTest"></class>
+            <class name="ContactsPageTest"></class>
         </classes>
     </test>
-    <test name="Login">
+    <test name="LoginPage">
         <classes>
             <class name="LoginTest"></class>
         </classes>
     </test>
-    <test name="Logout">
+    <test name="ProductPage">
         <classes>
-            <class name="LogoutTest"></class>
+            <class name="ProductViewTest"></class>
         </classes>
     </test>
-    <test name="ProductDeteilsView">
+    <test name="SearchPage">
         <classes>
-            <class name="ProductDetailsViewTest"></class>
+            <class name="SearchTest"></class>
         </classes>
     </test>
-    <test name="ProductFiltering">
+    <test name="PromotionPage">
         <classes>
-            <class name="ProductFilteringTest"></class>
+            <class name="PromotionPageTest"></class>
         </classes>
     </test>
-    <test name="ProductSearch">
+    <test name="CartPage">
         <classes>
-            <class name="ProductSearchTest"></class>
+            <class name="CartTest"></class>
         </classes>
     </test>
-    <test name="PromotionAndDiscount">
+    <test name="SocialPage">
         <classes>
-            <class name="PromotionAndDiscountTest"></class>
-        </classes>
-    </test>
-    <test name="SearchSorting">
-        <classes>
-            <class name="SearchSortingTest"></class>
-        </classes>
-    </test>
-    <test name="Security">
-        <classes>
-            <class name="SecurityTest"></class>
-        </classes>
-    </test>
-    <test name="ShoppingCartManagment">
-        <classes>
-            <class name="ShoppingCartManagementTest"></class>
-        </classes>
-    </test>
-    <test name="SocialIntegration">
-        <classes>
-            <class name="SocialIntegrationTest"></class>
+            <class name="SocialPage"></class>
         </classes>
     </test>
 </suite>
